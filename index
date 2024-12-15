@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متن دائمی</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .post {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>اضافه کردن متن</h1>
+        <textarea id="userInput" placeholder="متن خود را وارد کنید..."></textarea>
+        <button onclick="postText()">ارسال</button>
+
+        <div id="postsContainer"></div>
+    </div>
+
+    <script>
+        function postText() {
+            const inputText = document.getElementById("userInput").value;
+            if (inputText.trim() !== "") {
+                const postContainer = document.getElementById("postsContainer");
+
+                const postDiv = document.createElement("div");
+                postDiv.classList.add("post");
+                postDiv.textContent = inputText;
+
+                postContainer.appendChild(postDiv);
+
+                // Clear input field after posting
+                document.getElementById("userInput").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
